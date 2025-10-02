@@ -1,4 +1,4 @@
-/* Black background with white text */
+/* Global */
 body {
   background-color: black;
   color: white;
@@ -10,32 +10,46 @@ body {
   flex-direction: column;
 }
 
-/* Header fixed at top */
+/* Header fixed */
 header {
   background-color: #111;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 15px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 2px solid #222;
 }
 
-/* Logo + title */
-.logo {
+/* Row 1: Logo + Title */
+.header-top {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
 }
 
 .logo img {
-  height: 40px;
-  margin-right: 10px;
+  height: 50px;
 }
 
-/* Navigation styled as framed tabs */
+.company-title h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* Row 2: Tabs + Language */
+.header-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Navigation */
 nav {
   display: flex;
   gap: 10px;
@@ -55,20 +69,19 @@ nav a:hover {
   border-color: #666;
 }
 
-/* Active tab */
 nav a.active {
   background: #fff;
   color: black;
   border-color: #fff;
 }
 
-/* Language switch buttons */
+/* Language buttons */
 .lang-switch button {
   background: #444;
   border: none;
   color: white;
-  padding: 5px 10px;
-  margin: 0 3px;
+  padding: 6px 12px;
+  margin-left: 5px;
   cursor: pointer;
   border-radius: 5px;
 }
@@ -77,10 +90,44 @@ nav a.active {
   background: #666;
 }
 
-/* Scrollable content */
+/* Main content */
 main {
-  margin-top: 100px;
+  margin-top: 150px; /* leave space for fixed header */
   padding: 20px;
   flex: 1;
   overflow-y: auto;
+}
+
+/* Section cards */
+.content-card {
+  background: #1a1a1a;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.05);
+}
+
+.content-card h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 5px;
+}
+
+.content-card p {
+  line-height: 1.6;
+}
+
+.content-card ul {
+  margin-top: 10px;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
 }
