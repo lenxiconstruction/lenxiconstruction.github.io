@@ -3,70 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - My Website</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Contact - Seattle Lenxi Home Renovation</title>
+  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="icon" type="image/jpg" href="images/logo/lenxi.jpg">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: "Playfair Display", serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .contact-container {
+      max-width: 600px;
+      margin: 60px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .contact-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      width: 100%;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    input[type="file"] {
+      border: none;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: black;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #333;
+    }
+  </style>
+
   <script>
     function switchLanguage(lang) {
       document.querySelectorAll("[data-lang]").forEach(el => {
         el.style.display = (el.dataset.lang === lang) ? "block" : "none";
       });
     }
-    window.onload = () => switchLanguage("en");
+
+    window.onload = () => {
+      switchLanguage("en");
+
+      const path = window.location.pathname;
+      const currentPage = path.split("/").pop() || "index.html";
+
+      document.querySelectorAll("nav a").forEach(a => {
+        const href = a.getAttribute("href");
+        if (href === currentPage) {
+          a.classList.add("active");
+        } else {
+          a.classList.remove("active");
+        }
+      });
+    };
   </script>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <h1 data-lang="en">Contact Me</h1>
-    <h1 data-lang="zh">联系我们</h1>
+    <div class="header-top">
+      <div class="logo">
+        <img src="images/logo/lenxi.jpg" alt="Website Logo">
+      </div>
+      <div class="company-title">
+        <h1 data-lang="en">Seattle Lenxi Home Renovation</h1>
+        <h1 data-lang="zh">西雅图 LENXI 装修</h1>
+      </div>
+    </div>
 
-    <nav>
-      <a href="index.html" data-lang="en">Home</a>
-      <a href="index.html" data-lang="zh">首页</a>
-
-      <a href="portfolio.html" data-lang="en">Portfolio</a>
-      <a href="portfolio.html" data-lang="zh">作品集</a>
-
-      <a href="contact.html" data-lang="en">Contact</a>
-      <a href="contact.html" data-lang="zh">联系我们</a>
-    </nav>
-
-    <div class="lang-switch">
-      <button onclick="switchLanguage('en')">English</button>
-      <button onclick="switchLanguage('zh')">中文</button>
+    <div class="header-bottom">
+      <nav>
+        <a href="index.html"><span data-lang="en">Home</span><span data-lang="zh">首页</span></a>
+        <a href="about.html"><span data-lang="en">About</span><span data-lang="zh">关于我们</span></a>
+        <a href="portfolio.html"><span data-lang="en">Portfolio</span><span data-lang="zh">作品集</span></a>
+        <a href="contact.html"><span data-lang="en">Contact</span><span data-lang="zh">联系我们</span></a>
+      </nav>
+      <div class="lang-switch">
+        <button onclick="switchLanguage('en')">English</button>
+        <button onclick="switchLanguage('zh')">中文</button>
+      </div>
     </div>
   </header>
 
+  <!-- Contact Section -->
   <main>
-    <section>
+    <div class="contact-container">
       <h2 data-lang="en">Get in Touch</h2>
-      <h2 data-lang="zh">保持联系</h2>
+      <h2 data-lang="zh">联系我们</h2>
 
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
-        <label for="name" data-lang="en">Name:</label>
-        <label for="name" data-lang="zh">姓名：</label>
-        <input type="text" id="name" name="name" required><br><br>
+      <!-- Replace action with your email handler (Formspree, PHP, etc.) -->
+      <form action="https://formspree.io/f/yourFormID" method="POST" enctype="multipart/form-data">
+        <label data-lang="en" for="name">Name</label>
+        <label data-lang="zh" for="name">姓名</label>
+        <input type="text" id="name" name="name" required>
 
-        <label for="email" data-lang="en">Email:</label>
-        <label for="email" data-lang="zh">邮箱：</label>
-        <input type="email" id="email" name="email" required><br><br>
+        <label data-lang="en" for="phone">Phone Number</label>
+        <label data-lang="zh" for="phone">电话号码</label>
+        <input type="tel" id="phone" name="phone" required>
 
-        <label for="message" data-lang="en">Message:</label>
-        <label for="message" data-lang="zh">留言：</label>
-        <textarea id="message" name="message" rows="5" required></textarea><br><br>
+        <label data-lang="en" for="email">Email</label>
+        <label data-lang="zh" for="email">电子邮件</label>
+        <input type="email" id="email" name="email" required>
 
-        <label for="file" data-lang="en">Attach Image:</label>
-        <label for="file" data-lang="zh">上传图片：</label>
-        <input type="file" id="file" name="attachment" accept="image/*"><br><br>
+        <label data-lang="en" for="description">Project Description</label>
+        <label data-lang="zh" for="description">项目描述</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label data-lang="en" for="images">Upload Images (optional)</label>
+        <label data-lang="zh" for="images">上传图片（可选）</label>
+        <input type="file" id="images" name="images" accept="image/*" multiple>
 
         <button type="submit" data-lang="en">Send Message</button>
         <button type="submit" data-lang="zh">发送信息</button>
       </form>
-    </section>
+    </div>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p data-lang="en">© 2025 My Website</p>
-    <p data-lang="zh">© 2025 我的网站</p>
+    <p data-lang="en">© 2025 Lenxi Renovation</p>
+    <p data-lang="zh">© 2025 LENXI装修</p>
   </footer>
 </body>
 </html>

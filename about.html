@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Seattle Lenxi Home Renovation</title>
+  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="icon" type="image/jpg" href="images/logo/lenxi.jpg">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Navigation Styles -->
+  <style>
+    nav a {
+      text-decoration: none;
+      margin: 0 20px;
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      color: black;
+      position: relative;
+    }
+
+    nav a.active {
+      border-bottom: 2px solid black;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      opacity: 0.7;
+    }
+  </style>
+
+  <!-- JS for Language & Active Tab -->
+  <script>
+    function switchLanguage(lang) {
+      document.querySelectorAll("[data-lang]").forEach(el => {
+        el.style.display = (el.dataset.lang === lang) ? "inline" : "none";
+      });
+    }
+
+    window.onload = () => {
+      switchLanguage("en");
+
+      // Detect current page from URL
+      const path = window.location.pathname;
+      const currentPage = path.split("/").pop() || "index.html";
+
+      document.querySelectorAll("nav a").forEach(a => {
+        const href = a.getAttribute("href");
+        if (href === currentPage) {
+          a.classList.add("active");
+        } else {
+          a.classList.remove("active");
+        }
+      });
+    };
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-top">
+      <div class="logo">
+        <img src="images/logo/lenxi.jpg" alt="Website Logo">
+      </div>
+      <div class="company-title">
+        <h1 data-lang="en">Seattle Lenxi Home Renovation</h1>
+        <h1 data-lang="zh">西雅图 LENXI 装修</h1>
+      </div>
+    </div>
+
+    <div class="header-bottom">
+  <nav>
+    <a href="index.html"><span data-lang="en">Home</span><span data-lang="zh">首页</span></a>
+    <a href="about.html"><span data-lang="en">About</span><span data-lang="zh">关于我们</span></a>
+    <a href="portfolio.html"><span data-lang="en">Portfolio</span><span data-lang="zh">作品集</span></a>
+    <a href="contact.html"><span data-lang="en">Contact</span><span data-lang="zh">联系我们</span></a>
+  </nav>
+  <div class="lang-switch">
+    <button onclick="switchLanguage('en')">English</button>
+    <button onclick="switchLanguage('zh')">中文</button>
+  </div>
+</div>
+  </header>
+
+  <!-- About Section -->
+  <main>
+    <section class="content-card">
+      <h2 data-lang="en">About Lenxi Renovation</h2>
+      <h2 data-lang="zh">关于我们</h2>
+
+      <p data-lang="en">
+        Lenxi Renovation is a licensed and insured renovation company based in Seattle.  
+        Our team is composed of experienced professionals, with more than 10 years of expertise in the renovation industry.  
+        We transform residential and commercial spaces into modern, functional, and elegant environments, bringing our clients’ ideas to life with skill and craftsmanship.  
+        We look forward to discussing your next project with you.
+      </p>
+
+      <p data-lang="zh">
+        LENXI 装修是一家位于西雅图的持牌并投保的装修公司。  
+        团队由经验丰富的专业人员组成，在装修行业拥有十年以上的经验。  
+        我们致力于将住宅和商业空间打造成现代、实用且雅致的环境，  
+        凭借精湛工艺将客户的构想化为现实。  
+        我们期待与您探讨下一个项目。
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p data-lang="en">© 2025 Lenxi Renovation</p>
+    <p data-lang="zh">© 2025 LENXI装修</p>
+  </footer>
+</body>
+</html>

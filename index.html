@@ -4,8 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Seattle Lenxi Home Renovation</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=7">
   <link rel="icon" type="image/png" href="images/logo/lenxi.webp">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    nav a {
+      text-decoration: none;
+      margin: 0 20px;
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      color: black;
+      position: relative;
+    }
+
+    nav a.active {
+      border-bottom: 2px solid black;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      opacity: 0.7;
+    }
+  </style>
 
   <script>
     function switchLanguage(lang) {
@@ -14,15 +37,21 @@
       });
     }
 
-    function setActiveTab(el) {
-      document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
-      el.classList.add("active");
-    }
-
     window.onload = () => {
       switchLanguage("en");
-      const defaultTab = document.querySelector("nav a");
-      if (defaultTab) defaultTab.classList.add("active");
+
+      // Detect current page from URL
+      const path = window.location.pathname;
+      const currentPage = path.split("/").pop() || "index.html";
+
+      document.querySelectorAll("nav a").forEach(a => {
+        const href = a.getAttribute("href");
+        if (href === currentPage) {
+          a.classList.add("active");
+        } else {
+          a.classList.remove("active");
+        }
+      });
     };
   </script>
 </head>
@@ -42,69 +71,21 @@
 
     <!-- Row 2: Tabs + Language Switch -->
     <div class="header-bottom">
-      <nav>
-        <a href="index.html" onclick="setActiveTab(this)">
-          <span data-lang="en">Home</span>
-          <span data-lang="zh">首页</span>
-        </a>
-        <a href="portfolio.html" onclick="setActiveTab(this)">
-          <span data-lang="en">Portfolio</span>
-          <span data-lang="zh">作品集</span>
-        </a>
-        <a href="contact.html" onclick="setActiveTab(this)">
-          <span data-lang="en">Contact</span>
-          <span data-lang="zh">联系我们</span>
-        </a>
-      </nav>
-      <div class="lang-switch">
-        <button onclick="switchLanguage('en')">English</button>
-        <button onclick="switchLanguage('zh')">中文</button>
-      </div>
-    </div>
+  <nav>
+    <a href="index.html"><span data-lang="en">Home</span><span data-lang="zh">首页</span></a>
+    <a href="about.html"><span data-lang="en">About</span><span data-lang="zh">关于我们</span></a>
+    <a href="portfolio.html"><span data-lang="en">Portfolio</span><span data-lang="zh">作品集</span></a>
+    <a href="contact.html"><span data-lang="en">Contact</span><span data-lang="zh">联系我们</span></a>
+  </nav>
+  <div class="lang-switch">
+    <button onclick="switchLanguage('en')">English</button>
+    <button onclick="switchLanguage('zh')">中文</button>
+  </div>
+</div>
   </header>
 
   <!-- Scrollable Content -->
   <main>
-    <!-- About Us -->
-    <section class="content-card">
-      <h2 data-lang="en">About Lenxi Renovation</h2>
-      <h2 data-lang="zh">关于我们</h2>
-
-      <p data-lang="en">
-      Lenxi Renovation is a licensed and insured renovation company based in Seattle.  
-      Our team is composed of experienced professionals, with more than 10 years of expertise in the renovation industry.  
-      We transform residential and commercial spaces into modern, functional, and elegant environments, bringing our clients’ ideas to life with skill and craftsmanship.  
-      We look forward to discussing your next project with you.
-      </p>
-      <p data-lang="zh">
-      LENXI 装修是一家位于西雅图的持牌并投保的装修公司。  
-      团队由经验丰富的专业人员组成，在装修行业拥有十年以上的经验。  
-      我们致力于将住宅和商业空间打造成现代、实用且雅致的环境，  
-      凭借精湛工艺将客户的构想化为现实。  
-      我们期待与您探讨下一个项目。
-      </p>
-
-      <p data-lang="en"><strong>Our Services include:</strong></p>
-      <p data-lang="zh"><strong>我们的服务包括：</strong></p>
-
-      <ul data-lang="en">
-        <li>Bathroom & kitchen renovation</li>
-        <li>Flooring, tiling, and cabinetry</li>
-        <li>Garage remodeling</li>
-        <li>Interior & exterior painting</li>
-        <li>Full-service or partial renovation projects</li>
-        <li>From AI design to actual construction.</li>
-      </ul>
-      <ul data-lang="zh">
-        <li>卫生间与厨房翻新</li>
-        <li>地板、瓷砖、橱柜安装</li>
-        <li>车库翻新</li>
-        <li>室内与室外喷漆</li>
-        <li>全包或部分工程</li>
-        <li>AI 设计到实际施工</li>
-      </ul>
-    </section>
-
     <!-- More Info -->
     <section class="content-card">
       <h2 data-lang="en">More Info</h2>
@@ -120,6 +101,69 @@
         我们的团队致力于为您提供高质量的服务，满足您的需求和预算。  
         向下滚动查看我们的作品集和最新项目。
       </p>
+    </section>
+
+    <!-- Services -->
+    <section class="content-card">
+      <h2 data-lang="en">Our Services</h2>
+      <h2 data-lang="zh">我们的服务</h2>
+
+      <ul data-lang="en">
+        <li>Bathroom & kitchen renovation</li>
+        <li>Flooring, tiling, and cabinetry</li>
+        <li>Garage remodeling</li>
+        <li>Interior & exterior painting</li>
+        <li>Full-service or partial renovation projects</li>
+        <li>From AI design to actual construction</li>
+      </ul>
+
+      <ul data-lang="zh">
+        <li>卫生间与厨房翻新</li>
+        <li>地板、瓷砖、橱柜安装</li>
+        <li>车库翻新</li>
+        <li>室内与室外喷漆</li>
+        <li>全包或部分工程</li>
+        <li>AI 设计到实际施工</li>
+      </ul>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="portfolio-grid">
+      <h2 data-lang="en">Featured Projects</h2>
+      <h2 data-lang="zh">精选项目</h2>
+
+      <div class="grid">
+        <a href="project1.html" class="project">
+          <img src="images/projects/project1.jpg" alt="Redmond Residence">
+          <h3 data-lang="en">Redmond Residence</h3>
+          <h3 data-lang="zh">雷德蒙德住宅</h3>
+        </a>
+        <a href="project2.html" class="project">
+          <img src="images/projects/project2.jpg" alt="North Bend Residence">
+          <h3 data-lang="en">North Bend Residence</h3>
+          <h3 data-lang="zh">北湾住宅</h3>
+        </a>
+        <a href="project3.html" class="project">
+          <img src="images/projects/project3.jpg" alt="Kirkland Residence">
+          <h3 data-lang="en">Kirkland Residence</h3>
+          <h3 data-lang="zh">柯克兰住宅</h3>
+        </a>
+        <a href="project4.html" class="project">
+          <img src="images/projects/project4.jpg" alt="Magnolia Remodel">
+          <h3 data-lang="en">Magnolia Remodel</h3>
+          <h3 data-lang="zh">木兰区翻新</h3>
+        </a>
+        <a href="project5.html" class="project">
+          <img src="images/projects/project5.jpg" alt="North Seattle Residence">
+          <h3 data-lang="en">North Seattle Residence</h3>
+          <h3 data-lang="zh">西雅图北区住宅</h3>
+        </a>
+        <a href="project6.html" class="project">
+          <img src="images/projects/project6.jpg" alt="Bellevue Residence">
+          <h3 data-lang="en">Bellevue Residence</h3>
+          <h3 data-lang="zh">贝尔维尤住宅</h3>
+        </a>
+      </div>
     </section>
 
     <!-- Footer -->
