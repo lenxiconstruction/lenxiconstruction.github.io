@@ -5,28 +5,404 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Seattle Lenxi Home Renovation</title>
   <link rel="stylesheet" href="style.css?v=7">
-  <link rel="icon" type="image/png" href="images/logo/lenxi.webp">
+  <link rel="icon" type="image/png" href="images/logo/lenxi.png">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefefe;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header Styling */
+    header {
+      background: #fefefe;
+      padding: 40px 0;
+      text-align: center;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .logo-container {
+      margin-bottom: 30px;
+    }
+
+    .logo-container img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .company-title {
+      margin-bottom: 30px;
+    }
+
+    .company-title h1 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 20px;
+    }
+
     nav a {
       text-decoration: none;
-      margin: 0 20px;
-      font-family: "Playfair Display", serif;
+      color: #666;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #333;
+    }
+
+    /* Language Switch */
+    .lang-switch {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .lang-switch button {
+      background: none;
+      border: 1px solid #ddd;
+      color: #666;
+      padding: 8px 16px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .lang-switch button:hover {
+      border-color: #333;
+      color: #333;
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    /* Intro Section */
+    .intro-section {
+      text-align: center;
+      margin-bottom: 80px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .intro-section p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    /* Portfolio Grid */
+    .portfolio-grid {
+      margin-bottom: 80px;
+      text-align: center;
+    }
+
+    .portfolio-grid h2 {
+      font-size: 1.8rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+      color: #333;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .project {
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+    }
+
+    .project img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .project h3 {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #333;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    /* Project Detail Section */
+    .project-detail-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      margin-top: 80px;
+      display: none;
+    }
+
+    .project-detail-section.active {
+      display: block;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .close-project {
+      background: none;
+      border: 1px solid #ddd;
+      padding: 10px 20px;
+      margin-bottom: 30px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .close-project:hover {
+      border-color: #333;
+      color: #333;
+    }
+
+    .project-detail {
+      border-top: 1px solid #f0f0f0;
+      padding-top: 40px;
+    }
+
+    .project-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .project-header h2 {
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .project-location {
+      font-size: 0.9rem;
+      color: #666;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .project-gallery {
+      margin-bottom: 60px;
+    }
+
+    .main-image {
+      margin-bottom: 20px;
+    }
+
+    .main-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .gallery-thumbnails {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .thumbnail {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    .thumbnail:hover {
+      opacity: 0.8;
+    }
+
+    .project-info {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .project-description h3,
+    .project-details h3 {
       font-size: 1.2rem;
-      color: black;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .project-description p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #666;
+    }
+
+    .project-details ul {
+      list-style: none;
+    }
+
+    .project-details li {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .project-details strong {
+      color: #333;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .project-info {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .gallery-thumbnails {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .main-image img {
+        height: 250px;
+      }
+    }
+
+    /* Services Section */
+    .services-section {
+      background: #f9f9f9;
+      padding: 60px;
+      margin: 80px -40px;
+      text-align: center;
+    }
+
+    .services-section h2 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .services-grid ul {
+      list-style: none;
+      text-align: left;
+    }
+
+    .services-grid li {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 15px;
+      padding-left: 20px;
       position: relative;
     }
 
-    nav a.active {
-      border-bottom: 2px solid black;
-      font-weight: bold;
+    .services-grid li:before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #ccc;
     }
 
-    nav a:hover {
-      opacity: 0.7;
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid #f0f0f0;
+      margin-top: 80px;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: #999;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      nav {
+        gap: 20px;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      main {
+        padding: 40px 20px;
+      }
     }
   </style>
 
@@ -34,6 +410,236 @@
     function switchLanguage(lang) {
       document.querySelectorAll("[data-lang]").forEach(el => {
         el.style.display = (el.dataset.lang === lang) ? "inline" : "none";
+      });
+    }
+
+    // Project data
+    const projectData = {
+      project1: `
+        <div class="project-detail">
+          <div class="project-header">
+            <h2 data-lang="en">Redmond Residence</h2>
+            <h2 data-lang="zh">雷德蒙德住宅</h2>
+            <p class="project-location" data-lang="en">Redmond, WA</p>
+            <p class="project-location" data-lang="zh">华盛顿州雷德蒙德</p>
+          </div>
+
+          <div class="project-gallery">
+            <div class="main-image">
+              <img src="images/projects/project1.jpg" alt="Redmond Residence Main">
+            </div>
+            <div class="gallery-thumbnails">
+              <img src="images/projects/project1.jpg" alt="Redmond Residence Kitchen" class="thumbnail">
+              <img src="images/projects/project1.jpg" alt="Redmond Residence Bathroom" class="thumbnail">
+              <img src="images/projects/project1.jpg" alt="Redmond Residence Living Room" class="thumbnail">
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div class="project-description">
+              <h3 data-lang="en">Project Overview</h3>
+              <h3 data-lang="zh">项目概述</h3>
+              <p data-lang="en">
+                Complete home renovation including kitchen remodeling, bathroom updates, and living space modernization. 
+                This project transformed a traditional home into a contemporary living space while maintaining its original charm.
+              </p>
+              <p data-lang="zh">
+                全屋翻新包括厨房改造、浴室更新和生活空间现代化。
+                该项目将传统住宅改造成现代生活空间，同时保持其原有魅力。
+              </p>
+            </div>
+
+            <div class="project-details">
+              <h3 data-lang="en">Project Details</h3>
+              <h3 data-lang="zh">项目详情</h3>
+              <ul data-lang="en">
+                <li><strong>Duration:</strong> 8 weeks</li>
+                <li><strong>Area:</strong> 2,400 sq ft</li>
+                <li><strong>Services:</strong> Full renovation, Kitchen & Bath remodel</li>
+                <li><strong>Year:</strong> 2024</li>
+              </ul>
+              <ul data-lang="zh">
+                <li><strong>工期:</strong> 8周</li>
+                <li><strong>面积:</strong> 2,400平方英尺</li>
+                <li><strong>服务:</strong> 全屋翻新，厨房浴室改造</li>
+                <li><strong>年份:</strong> 2024年</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      `,
+      project2: `
+        <div class="project-detail">
+          <div class="project-header">
+            <h2 data-lang="en">North Bend Residence</h2>
+            <h2 data-lang="zh">北湾住宅</h2>
+            <p class="project-location" data-lang="en">North Bend, WA</p>
+            <p class="project-location" data-lang="zh">华盛顿州北湾</p>
+          </div>
+
+          <div class="project-gallery">
+            <div class="main-image">
+              <img src="images/projects/project2.jpg" alt="North Bend Residence Main">
+            </div>
+            <div class="gallery-thumbnails">
+              <img src="images/projects/project2.jpg" alt="North Bend Residence Kitchen" class="thumbnail">
+              <img src="images/projects/project2.jpg" alt="North Bend Residence Bathroom" class="thumbnail">
+              <img src="images/projects/project2.jpg" alt="North Bend Residence Bedroom" class="thumbnail">
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div class="project-description">
+              <h3 data-lang="en">Project Overview</h3>
+              <h3 data-lang="zh">项目概述</h3>
+              <p data-lang="en">
+                Modern mountain home renovation featuring open-concept living spaces, updated kitchen with custom cabinetry, 
+                and spa-like master bathroom. The design emphasizes natural materials and panoramic mountain views.
+              </p>
+              <p data-lang="zh">
+                现代山景住宅翻新，设有开放式生活空间、定制橱柜的更新厨房和水疗式主浴室。
+                设计强调天然材料和全景山景。
+              </p>
+            </div>
+
+            <div class="project-details">
+              <h3 data-lang="en">Project Details</h3>
+              <h3 data-lang="zh">项目详情</h3>
+              <ul data-lang="en">
+                <li><strong>Duration:</strong> 10 weeks</li>
+                <li><strong>Area:</strong> 3,200 sq ft</li>
+                <li><strong>Services:</strong> Kitchen remodel, Master bath, Living areas</li>
+                <li><strong>Year:</strong> 2024</li>
+              </ul>
+              <ul data-lang="zh">
+                <li><strong>工期:</strong> 10周</li>
+                <li><strong>面积:</strong> 3,200平方英尺</li>
+                <li><strong>服务:</strong> 厨房改造，主浴室，生活区域</li>
+                <li><strong>年份:</strong> 2024年</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      `,
+      project3: `
+        <div class="project-detail">
+          <div class="project-header">
+            <h2 data-lang="en">Kirkland Residence</h2>
+            <h2 data-lang="zh">柯克兰住宅</h2>
+            <p class="project-location" data-lang="en">Kirkland, WA</p>
+            <p class="project-location" data-lang="zh">华盛顿州柯克兰</p>
+          </div>
+
+          <div class="project-gallery">
+            <div class="main-image">
+              <img src="images/projects/project3.jpg" alt="Kirkland Residence Main">
+            </div>
+            <div class="gallery-thumbnails">
+              <img src="images/projects/project3.jpg" alt="Kirkland Residence Kitchen" class="thumbnail">
+              <img src="images/projects/project3.jpg" alt="Kirkland Residence Dining" class="thumbnail">
+              <img src="images/projects/project3.jpg" alt="Kirkland Residence Patio" class="thumbnail">
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div class="project-description">
+              <h3 data-lang="en">Project Overview</h3>
+              <h3 data-lang="zh">项目概述</h3>
+              <p data-lang="en">
+                Elegant lakefront home renovation with focus on indoor-outdoor living. Features include a gourmet kitchen, 
+                expanded dining area, and seamless connection to outdoor entertaining spaces overlooking Lake Washington.
+              </p>
+              <p data-lang="zh">
+                优雅的湖滨住宅翻新，专注于室内外生活。特色包括美食厨房、
+                扩展的用餐区，以及与俯瞰华盛顿湖的户外娱乐空间的无缝连接。
+              </p>
+            </div>
+
+            <div class="project-details">
+              <h3 data-lang="en">Project Details</h3>
+              <h3 data-lang="zh">项目详情</h3>
+              <ul data-lang="en">
+                <li><strong>Duration:</strong> 12 weeks</li>
+                <li><strong>Area:</strong> 2,800 sq ft</li>
+                <li><strong>Services:</strong> Kitchen expansion, Dining remodel, Outdoor spaces</li>
+                <li><strong>Year:</strong> 2024</li>
+              </ul>
+              <ul data-lang="zh">
+                <li><strong>工期:</strong> 12周</li>
+                <li><strong>面积:</strong> 2,800平方英尺</li>
+                <li><strong>服务:</strong> 厨房扩建，餐厅改造，户外空间</li>
+                <li><strong>年份:</strong> 2024年</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      `
+    };
+
+    // Project loading functionality
+    function loadProject(projectId) {
+      try {
+        const content = projectData[projectId];
+        if (!content) {
+          console.error('Project not found:', projectId);
+          return;
+        }
+        
+        document.getElementById('projectDetailContent').innerHTML = content;
+        document.getElementById('projectDetailSection').classList.add('active');
+        
+        // Apply current language to newly loaded content
+        const currentLang = getCurrentLanguage();
+        switchLanguage(currentLang);
+        
+        // Scroll to project detail section
+        document.getElementById('projectDetailSection').scrollIntoView({ 
+          behavior: 'smooth' 
+        });
+        
+        // Add thumbnail click functionality
+        addThumbnailListeners();
+        
+      } catch (error) {
+        console.error('Error loading project:', error);
+      }
+    }
+
+    function closeProject() {
+      document.getElementById('projectDetailSection').classList.remove('active');
+      // Scroll back to projects section
+      document.querySelector('.portfolio-grid').scrollIntoView({ 
+        behavior: 'smooth' 
+      });
+    }
+
+    // Add double-click functionality to go to project directory
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.project').forEach(project => {
+        project.addEventListener('dblclick', function() {
+          const projectUrl = this.getAttribute('data-project-url');
+          if (projectUrl) {
+            window.location.href = projectUrl;
+          }
+        });
+      });
+    });
+
+    function getCurrentLanguage() {
+      // Check which language is currently active
+      const enElement = document.querySelector('[data-lang="en"]');
+      return enElement && enElement.style.display !== 'none' ? 'en' : 'zh';
+    }
+
+    function addThumbnailListeners() {
+      document.querySelectorAll('.thumbnail').forEach(thumb => {
+        thumb.addEventListener('click', function() {
+          const mainImage = document.querySelector('.main-image img');
+          if (mainImage) {
+            mainImage.src = this.src;
+            mainImage.alt = this.alt;
+          }
+        });
       });
     }
 
@@ -56,113 +662,96 @@
   </script>
 </head>
 <body>
-  <!-- Fixed Header -->
   <header>
-    <!-- Row 1: Logo + Title -->
-    <div class="header-top">
-      <div class="logo">
-        <img src="images/logo/lenxi.jpg" alt="Website Logo">
-      </div>
-      <div class="company-title">
-        <h1 data-lang="en">Seattle Lenxi Home Renovation</h1>
-        <h1 data-lang="zh">西雅图 LENXI 装修</h1>
-      </div>
+    <div class="logo-container">
+      <img src="images/logo/lenxi.png" alt="Lenxi Logo">
+    </div>
+    
+    <div class="company-title">
+      <h1 data-lang="en">Seattle Lenxi Home Renovation</h1>
+      <h1 data-lang="zh">西雅图 LENXI 装修</h1>
     </div>
 
-    <!-- Row 2: Tabs + Language Switch -->
-    <div class="header-bottom">
-  <nav>
-    <a href="index.html"><span data-lang="en">Home</span><span data-lang="zh">首页</span></a>
-    <a href="about.html"><span data-lang="en">About</span><span data-lang="zh">关于我们</span></a>
-    <a href="portfolio.html"><span data-lang="en">Portfolio</span><span data-lang="zh">作品集</span></a>
-    <a href="contact.html"><span data-lang="en">Contact</span><span data-lang="zh">联系我们</span></a>
-  </nav>
-  <div class="lang-switch">
-    <button onclick="switchLanguage('en')">English</button>
-    <button onclick="switchLanguage('zh')">中文</button>
-  </div>
-</div>
+    <nav>
+      <a href="index.html"><span data-lang="en">Home</span><span data-lang="zh">首页</span></a>
+      <a href="about.html"><span data-lang="en">About</span><span data-lang="zh">关于我们</span></a>
+      <a href="portfolio.html"><span data-lang="en">Portfolio</span><span data-lang="zh">作品集</span></a>
+      <a href="contact.html"><span data-lang="en">Contact</span><span data-lang="zh">联系我们</span></a>
+    </nav>
+    
+    <div class="lang-switch">
+      <button onclick="switchLanguage('en')">EN</button>
+      <button onclick="switchLanguage('zh')">中文</button>
+    </div>
   </header>
 
-  <!-- Scrollable Content -->
   <main>
-    <!-- More Info -->
-    <section class="content-card">
-      <h2 data-lang="en">More Info</h2>
-      <h2 data-lang="zh">更多信息</h2>
-
+    <!-- Intro Section -->
+    <section class="intro-section">
       <p data-lang="en">
-        We offer free consultations and estimates.  
-        Our team is dedicated to delivering high-quality work that meets your needs and budget.  
-        Scroll down to explore our portfolio and recent projects.
+        We offer free consultations and estimates. Our team is dedicated to delivering high-quality work that meets your needs and budget.
       </p>
       <p data-lang="zh">
-        我们提供免费咨询与估价。  
-        我们的团队致力于为您提供高质量的服务，满足您的需求和预算。  
-        向下滚动查看我们的作品集和最新项目。
+        我们提供免费咨询与估价。我们的团队致力于为您提供高质量的服务，满足您的需求和预算。
       </p>
-    </section>
-
-    <!-- Services -->
-    <section class="content-card">
-      <h2 data-lang="en">Our Services</h2>
-      <h2 data-lang="zh">我们的服务</h2>
-
-      <ul data-lang="en">
-        <li>Bathroom & kitchen renovation</li>
-        <li>Flooring, tiling, and cabinetry</li>
-        <li>Garage remodeling</li>
-        <li>Interior & exterior painting</li>
-        <li>Full-service or partial renovation projects</li>
-        <li>From AI design to actual construction</li>
-      </ul>
-
-      <ul data-lang="zh">
-        <li>卫生间与厨房翻新</li>
-        <li>地板、瓷砖、橱柜安装</li>
-        <li>车库翻新</li>
-        <li>室内与室外喷漆</li>
-        <li>全包或部分工程</li>
-        <li>AI 设计到实际施工</li>
-      </ul>
     </section>
 
     <!-- Portfolio Grid -->
     <section class="portfolio-grid">
       <h2 data-lang="en">Featured Projects</h2>
       <h2 data-lang="zh">精选项目</h2>
-
+      
       <div class="grid">
-        <a href="project1.html" class="project">
+        <div class="project" onclick="loadProject('project1')" data-project-url="projects/redmond-residence/">
           <img src="images/projects/project1.jpg" alt="Redmond Residence">
           <h3 data-lang="en">Redmond Residence</h3>
           <h3 data-lang="zh">雷德蒙德住宅</h3>
-        </a>
-        <a href="project2.html" class="project">
+        </div>
+        <div class="project" onclick="loadProject('project2')" data-project-url="projects/north-bend-residence/">
           <img src="images/projects/project2.jpg" alt="North Bend Residence">
           <h3 data-lang="en">North Bend Residence</h3>
           <h3 data-lang="zh">北湾住宅</h3>
-        </a>
-        <a href="project3.html" class="project">
+        </div>
+        <div class="project" onclick="loadProject('project3')" data-project-url="projects/kirkland-residence/">
           <img src="images/projects/project3.jpg" alt="Kirkland Residence">
           <h3 data-lang="en">Kirkland Residence</h3>
           <h3 data-lang="zh">柯克兰住宅</h3>
-        </a>
-        <a href="project4.html" class="project">
-          <img src="images/projects/project4.jpg" alt="Magnolia Remodel">
-          <h3 data-lang="en">Magnolia Remodel</h3>
-          <h3 data-lang="zh">木兰区翻新</h3>
-        </a>
-        <a href="project5.html" class="project">
-          <img src="images/projects/project5.jpg" alt="North Seattle Residence">
-          <h3 data-lang="en">North Seattle Residence</h3>
-          <h3 data-lang="zh">西雅图北区住宅</h3>
-        </a>
-        <a href="project6.html" class="project">
-          <img src="images/projects/project6.jpg" alt="Bellevue Residence">
-          <h3 data-lang="en">Bellevue Residence</h3>
-          <h3 data-lang="zh">贝尔维尤住宅</h3>
-        </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Detail Section -->
+    <section class="project-detail-section" id="projectDetailSection">
+      <button class="close-project" onclick="closeProject()" data-lang="en">← Back to Projects</button>
+      <button class="close-project" onclick="closeProject()" data-lang="zh">← 返回项目</button>
+      <div id="projectDetailContent">
+        <!-- Project content will be loaded here -->
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+      <h2 data-lang="en">Our Services</h2>
+      <h2 data-lang="zh">我们的服务</h2>
+
+      <div class="services-grid">
+        <ul data-lang="en">
+          <li>Bathroom & kitchen renovation</li>
+          <li>Flooring, tiling, and cabinetry</li>
+          <li>Garage remodeling</li>
+          <li>Interior & exterior painting</li>
+          <li>Full-service or partial renovation projects</li>
+          <li>From AI design to actual construction</li>
+        </ul>
+
+        <ul data-lang="zh">
+          <li>卫生间与厨房翻新</li>
+          <li>地板、瓷砖、橱柜安装</li>
+          <li>车库翻新</li>
+          <li>室内与室外喷漆</li>
+          <li>全包或部分工程</li>
+          <li>AI 设计到实际施工</li>
+        </ul>
       </div>
     </section>
 
