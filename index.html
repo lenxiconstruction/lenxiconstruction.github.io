@@ -1,28 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome - My Website</title>
-  <link rel="stylesheet" href="style.css">
-  <script>
-    function switchLanguage(lang) {
-      document.querySelectorAll("[data-lang]").forEach(el => {
-        if (el.dataset.lang === lang) {
-          el.style.display = "block";
-        } else {
-          el.style.display = "none";
-        }
-      });
-    }
-    // Default to English on page load
-    window.onload = () => switchLanguage("en");
-  </script>
-</head>
 <body>
+  <!-- Fixed top section -->
   <header>
-    <h1 data-lang="en">Welcome to My Website</h1>
-    <h1 data-lang="zh">欢迎来到我的网站</h1>
+    <div class="logo">
+      <img src="logo.png" alt="Website Logo">
+      <h1 data-lang="en">Welcome to My Website</h1>
+      <h1 data-lang="zh">欢迎来到我的网站</h1>
+    </div>
     
     <nav>
       <a href="index.html" data-lang="en">Home</a>
@@ -35,13 +18,13 @@
       <a href="contact.html" data-lang="zh">联系我们</a>
     </nav>
 
-    <!-- Language Switch Buttons -->
     <div class="lang-switch">
       <button onclick="switchLanguage('en')">English</button>
       <button onclick="switchLanguage('zh')">中文</button>
     </div>
   </header>
 
+  <!-- Scrollable bottom section -->
   <main>
     <section>
       <h2 data-lang="en">About Me</h2>
@@ -56,11 +39,17 @@
         欢迎查看我的作品集，了解我最近的项目！
       </p>
     </section>
-  </main>
 
-  <footer>
-    <p data-lang="en">© 2025 My Website</p>
-    <p data-lang="zh">© 2025 我的网站</p>
-  </footer>
+    <section>
+      <h2 data-lang="en">More Info</h2>
+      <h2 data-lang="zh">更多信息</h2>
+      <p data-lang="en">Here you can scroll down to see more details about my work, blog, or other updates.</p>
+      <p data-lang="zh">在这里你可以向下滚动查看更多关于我的工作、博客或其他更新的信息。</p>
+    </section>
+
+    <footer>
+      <p data-lang="en">© 2025 My Website</p>
+      <p data-lang="zh">© 2025 我的网站</p>
+    </footer>
+  </main>
 </body>
-</html>
