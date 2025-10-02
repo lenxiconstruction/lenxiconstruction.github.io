@@ -27,43 +27,43 @@
   </script>
 </head>
 <body>
-  <!-- Fixed top section -->
+  <!-- Fixed Header -->
   <header>
-  <!-- Row 1: Logo + Title side by side -->
-  <div class="header-top">
-    <div class="logo">
-      <img src="images/logo/lenxi.webp" alt="Website Logo">
+    <!-- Row 1: Logo + Title -->
+    <div class="header-top">
+      <div class="logo">
+        <img src="images/logo/lenxi.webp" alt="Website Logo">
+      </div>
+      <div class="company-title">
+        <h1 data-lang="en">Seattle Lenxi Home Renovation</h1>
+        <h1 data-lang="zh">西雅图 LENXI 装修</h1>
+      </div>
     </div>
-    <div class="company-title">
-      <h1 data-lang="en">Seattle Lenxi Home Renovation</h1>
-      <h1 data-lang="zh">西雅图 LENXI 装修</h1>
-    </div>
-  </div>
 
-  <!-- Row 2: Tabs + Language Switch -->
-  <div class="header-bottom">
-    <nav>
-      <a href="index.html" onclick="setActiveTab(this)">
-        <span data-lang="en">Home</span>
-        <span data-lang="zh">首页</span>
-      </a>
-      <a href="portfolio.html" onclick="setActiveTab(this)">
-        <span data-lang="en">Portfolio</span>
-        <span data-lang="zh">作品集</span>
-      </a>
-      <a href="contact.html" onclick="setActiveTab(this)">
-        <span data-lang="en">Contact</span>
-        <span data-lang="zh">联系我们</span>
-      </a>
-    </nav>
-    <div class="lang-switch">
-      <button onclick="switchLanguage('en')">English</button>
-      <button onclick="switchLanguage('zh')">中文</button>
+    <!-- Row 2: Tabs + Language Switch -->
+    <div class="header-bottom">
+      <nav>
+        <a href="index.html" onclick="setActiveTab(this)">
+          <span data-lang="en">Home</span>
+          <span data-lang="zh">首页</span>
+        </a>
+        <a href="portfolio.html" onclick="setActiveTab(this)">
+          <span data-lang="en">Portfolio</span>
+          <span data-lang="zh">作品集</span>
+        </a>
+        <a href="contact.html" onclick="setActiveTab(this)">
+          <span data-lang="en">Contact</span>
+          <span data-lang="zh">联系我们</span>
+        </a>
+      </nav>
+      <div class="lang-switch">
+        <button onclick="switchLanguage('en')">English</button>
+        <button onclick="switchLanguage('zh')">中文</button>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-  <!-- Scrollable bottom section -->
+  <!-- Scrollable Content -->
   <main>
     <!-- About Us -->
     <section class="content-card">
@@ -72,16 +72,15 @@
 
       <p data-lang="en">
         Lenxi Renovation is a licensed and insured home renovation company based in Seattle.  
-        We specialize in transforming houses and businesses into modern, functional, and beautiful spaces.  
-        <br><br>
-        <strong>Our Services include:</strong>
+        We specialize in transforming houses and businesses into modern, functional, and beautiful spaces.
       </p>
       <p data-lang="zh">
         LENXI 装修是一家位于西雅图的持牌并投保的专业装修公司。  
-        我们专注于把住宅和商业空间改造成现代化、实用、美观的环境。  
-        <br><br>
-        <strong>我们的服务包括：</strong>
+        我们专注于把住宅和商业空间改造成现代化、实用、美观的环境。
       </p>
+
+      <p data-lang="en"><strong>Our Services include:</strong></p>
+      <p data-lang="zh"><strong>我们的服务包括：</strong></p>
 
       <ul data-lang="en">
         <li>Bathroom & kitchen renovation</li>
@@ -116,6 +115,7 @@
       </p>
     </section>
 
+    <!-- Footer -->
     <footer>
       <p data-lang="en">© 2025 Lenxi Renovation</p>
       <p data-lang="zh">© 2025 LENXI装修</p>
