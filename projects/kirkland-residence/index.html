@@ -11,12 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
       background-color: #fefefe;
@@ -32,218 +27,93 @@
       border-bottom: 1px solid #f0f0f0;
     }
 
-    .logo-container {
-      margin-bottom: 30px;
-    }
-
     .logo-container img {
-      width: 120px;
-      height: 120px;
-      object-fit: contain;
-      border-radius: 50%;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 120px; height: 120px; object-fit: contain;
+      border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
-
-    .company-title {
-      margin-bottom: 30px;
-    }
-
     .company-title h1 {
-      font-size: 1.5rem;
-      font-weight: 300;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #333;
-      margin-bottom: 10px;
+      font-size: 1.5rem; font-weight: 300; letter-spacing: 2px;
+      text-transform: uppercase; color: #333; margin: 20px 0;
     }
 
-    /* Navigation */
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-bottom: 20px;
-    }
-
+    nav { display: flex; justify-content: center; gap: 40px; margin-bottom: 20px; }
     nav a {
-      text-decoration: none;
-      color: #666;
-      font-size: 0.95rem;
-      font-weight: 400;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+      text-decoration: none; color: #666; font-size: 0.95rem;
+      font-weight: 400; text-transform: uppercase;
       transition: color 0.3s ease;
     }
+    nav a:hover, nav a.active { color: #333; }
 
-    nav a:hover,
-    nav a.active {
-      color: #333;
-    }
-
-    /* Language Switch */
-    .lang-switch {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-    }
-
+    .lang-switch { display: flex; justify-content: center; gap: 15px; }
     .lang-switch button {
-      background: none;
-      border: 1px solid #ddd;
-      color: #666;
-      padding: 8px 16px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      letter-spacing: 1px;
+      background: none; border: 1px solid #ddd; color: #666;
+      padding: 8px 16px; font-size: 0.8rem; cursor: pointer;
+      text-transform: uppercase; transition: all 0.3s ease;
+    }
+    .lang-switch button:hover { border-color: #333; color: #333; }
+
+    /* Main */
+    main { max-width: 1200px; margin: 0 auto; padding: 60px 40px; }
+
+    /* Project Detail */
+    .project-detail { border-top: 1px solid #f0f0f0; padding-top: 40px; }
+    .project-header { text-align: center; margin-bottom: 40px; }
+    .project-header h2 {
+      font-size: 2rem; font-weight: 300; letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .project-location {
+      font-size: 0.9rem; color: #666; text-transform: uppercase;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin: 20px auto 40px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
       text-transform: uppercase;
+      border: 1px solid #ddd;
+      background: #fff;
+      cursor: pointer;
       transition: all 0.3s ease;
     }
+    .back-button:hover { border-color: #333; color: #333; }
 
-    .lang-switch button:hover {
-      border-color: #333;
-      color: #333;
-    }
-
-    /* Main Content */
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 60px 40px;
-    }
-
-    /* Project Detail Styles */
-    .project-detail {
-      border-top: 1px solid #f0f0f0;
-      padding-top: 40px;
-    }
-
-    .project-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .project-header h2 {
-      font-size: 2rem;
-      font-weight: 300;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    .project-location {
-      font-size: 0.9rem;
-      color: #666;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .project-gallery {
-      margin-bottom: 60px;
-    }
-
-    .main-image {
-      margin-bottom: 20px;
-    }
-
+    .project-gallery { margin-bottom: 60px; }
     .main-image img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
+      width: 100%; height: 400px; object-fit: cover; margin-bottom: 20px;
     }
-
     .gallery-thumbnails {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;
     }
-
     .thumbnail {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      cursor: pointer;
-      transition: opacity 0.3s ease;
+      width: 100%; height: 120px; object-fit: cover;
+      cursor: pointer; transition: opacity 0.3s ease;
     }
-
-    .thumbnail:hover {
-      opacity: 0.8;
-    }
+    .thumbnail:hover { opacity: 0.8; }
 
     .project-info {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 60px;
-      margin-bottom: 60px;
+      display: grid; grid-template-columns: 2fr 1fr;
+      gap: 60px; margin-bottom: 60px;
     }
-
-    .project-description h3,
-    .project-details h3 {
-      font-size: 1.2rem;
-      font-weight: 400;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+    .project-description h3, .project-details h3 {
+      font-size: 1.2rem; font-weight: 400; text-transform: uppercase;
       margin-bottom: 20px;
-      color: #333;
     }
+    .project-description p { font-size: 1rem; color: #666; line-height: 1.8; }
+    .project-details ul { list-style: none; }
+    .project-details li { margin-bottom: 10px; font-size: 0.95rem; color: #666; }
+    .project-details strong { color: #333; }
 
-    .project-description p {
-      font-size: 1rem;
-      line-height: 1.8;
-      color: #666;
-    }
+    footer { text-align: center; padding: 40px 0; border-top: 1px solid #f0f0f0; }
+    footer p { font-size: 0.8rem; color: #999; text-transform: uppercase; }
 
-    .project-details ul {
-      list-style: none;
-    }
-
-    .project-details li {
-      margin-bottom: 10px;
-      font-size: 0.95rem;
-      color: #666;
-    }
-
-    .project-details strong {
-      color: #333;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      border-top: 1px solid #f0f0f0;
-      margin-top: 80px;
-    }
-
-    footer p {
-      font-size: 0.8rem;
-      color: #999;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    /* Responsive */
     @media (max-width: 768px) {
-      .project-info {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-      
-      .gallery-thumbnails {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .main-image img {
-        height: 250px;
-      }
-      
-      nav {
-        gap: 20px;
-      }
-      
-      main {
-        padding: 40px 20px;
-      }
+      .project-info { grid-template-columns: 1fr; gap: 30px; }
+      .gallery-thumbnails { grid-template-columns: repeat(2, 1fr); }
+      .main-image img { height: 250px; }
+      nav { gap: 20px; }
+      main { padding: 40px 20px; }
     }
   </style>
 
@@ -253,50 +123,37 @@
         el.style.display = (el.dataset.lang === lang) ? "inline" : "none";
       });
     }
-
     function addThumbnailListeners() {
       document.querySelectorAll('.thumbnail').forEach(thumb => {
         thumb.addEventListener('click', function() {
           const mainImage = document.querySelector('.main-image img');
-          if (mainImage) {
-            mainImage.src = this.src;
-            mainImage.alt = this.alt;
-          }
+          mainImage.src = this.src;
+          mainImage.alt = this.alt;
         });
       });
     }
-
     window.onload = () => {
       switchLanguage("en");
       addThumbnailListeners();
-
-      // Mark portfolio as active
       document.querySelectorAll("nav a").forEach(a => {
-        if (a.getAttribute("href").includes("portfolio")) {
-          a.classList.add("active");
-        }
+        if (a.getAttribute("href").includes("portfolio")) a.classList.add("active");
       });
     };
   </script>
 </head>
 <body>
   <header>
-    <div class="logo-container">
-      <img src="../../images/logo/lenxi.png" alt="Lenxi Logo">
-    </div>
-    
+    <div class="logo-container"><img src="../../images/logo/lenxi.png" alt="Lenxi Logo"></div>
     <div class="company-title">
       <h1 data-lang="en">Seattle Lenxi Home Renovation</h1>
       <h1 data-lang="zh">西雅图 LENXI 装修</h1>
     </div>
-
     <nav>
       <a href="../../index.html"><span data-lang="en">Home</span><span data-lang="zh">首页</span></a>
       <a href="../../about.html"><span data-lang="en">About</span><span data-lang="zh">关于我们</span></a>
       <a href="../../portfolio.html"><span data-lang="en">Portfolio</span><span data-lang="zh">作品集</span></a>
       <a href="../../contact.html"><span data-lang="en">Contact</span><span data-lang="zh">联系我们</span></a>
     </nav>
-    
     <div class="lang-switch">
       <button onclick="switchLanguage('en')">EN</button>
       <button onclick="switchLanguage('zh')">中文</button>
@@ -310,16 +167,18 @@
         <h2 data-lang="zh">柯克兰住宅</h2>
         <p class="project-location" data-lang="en">Kirkland, WA</p>
         <p class="project-location" data-lang="zh">华盛顿州柯克兰</p>
+        <a href="../../portfolio.html" class="back-button" data-lang="en">← Back to Portfolio</a>
+        <a href="../../portfolio.html" class="back-button" data-lang="zh">← 返回作品集</a>
       </div>
 
       <div class="project-gallery">
         <div class="main-image">
-          <img src="../../images/projects/project3.jpg" alt="Kirkland Residence Main">
+          <img src="images/hero.jpg" alt="Kirkland Residence Main" loading="lazy">
         </div>
         <div class="gallery-thumbnails">
-          <img src="../../images/projects/project3.jpg" alt="Kirkland Residence Kitchen" class="thumbnail">
-          <img src="../../images/projects/project3.jpg" alt="Kirkland Residence Dining" class="thumbnail">
-          <img src="../../images/projects/project3.jpg" alt="Kirkland Residence Patio" class="thumbnail">
+          <img src="images/kitchen.jpg" alt="Kirkland Residence Kitchen" class="thumbnail" loading="lazy">
+          <img src="images/dining.jpg" alt="Kirkland Residence Dining" class="thumbnail" loading="lazy">
+          <img src="images/patio.jpg" alt="Kirkland Residence Patio" class="thumbnail" loading="lazy">
         </div>
       </div>
 
@@ -327,16 +186,9 @@
         <div class="project-description">
           <h3 data-lang="en">Project Overview</h3>
           <h3 data-lang="zh">项目概述</h3>
-          <p data-lang="en">
-            Elegant lakefront home renovation with focus on indoor-outdoor living. Features include a gourmet kitchen, 
-            expanded dining area, and seamless connection to outdoor entertaining spaces overlooking Lake Washington.
-          </p>
-          <p data-lang="zh">
-            优雅的湖滨住宅翻新，专注于室内外生活。特色包括美食厨房、
-            扩展的用餐区，以及与俯瞰华盛顿湖的户外娱乐空间的无缝连接。
-          </p>
+          <p data-lang="en">Elegant lakefront home renovation with focus on indoor-outdoor living. Features include a gourmet kitchen, expanded dining area, and seamless connection to outdoor entertaining spaces overlooking Lake Washington.</p>
+          <p data-lang="zh">优雅的湖滨住宅翻新，专注于室内外生活。特色包括美食厨房、扩展的用餐区，以及与俯瞰华盛顿湖的户外娱乐空间的无缝连接。</p>
         </div>
-
         <div class="project-details">
           <h3 data-lang="en">Project Details</h3>
           <h3 data-lang="zh">项目详情</h3>
