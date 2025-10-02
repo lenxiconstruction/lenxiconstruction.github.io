@@ -1,23 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seattle Lenxi Home Renovation</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo/lenxi.webp">
+
+  <script>
+    // Language switch
+    function switchLanguage(lang) {
+      document.querySelectorAll("[data-lang]").forEach(el => {
+        el.style.display = (el.dataset.lang === lang) ? "inline" : "none";
+      });
+    }
+
+    // Highlight selected tab
+    function setActiveTab(el) {
+      document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
+      el.classList.add("active");
+    }
+
+    // On page load
+    window.onload = () => {
+      switchLanguage("en");
+      const defaultTab = document.querySelector("nav a");
+      if (defaultTab) defaultTab.classList.add("active");
+    };
+  </script>
+</head>
 <body>
   <!-- Fixed top section -->
   <header>
     <div class="logo">
-      <img src="logo.png" alt="Website Logo">
-      <h1 data-lang="en">Welcome to My Website</h1>
-      <h1 data-lang="zh">欢迎来到我的网站</h1>
+      <img src="images/logo/lenxi.webp" alt="Website Logo">
+      <h1 data-lang="en">Welcome to SEATTLE Lenxi Home Renovation</h1>
+      <h1 data-lang="zh">欢迎来到西雅图LENXI装修</h1>
     </div>
     
+    <!-- Navigation tabs -->
     <nav>
-      <a href="index.html" data-lang="en">Home</a>
-      <a href="index.html" data-lang="zh">首页</a>
-      
-      <a href="portfolio.html" data-lang="en">Portfolio</a>
-      <a href="portfolio.html" data-lang="zh">作品集</a>
-      
-      <a href="contact.html" data-lang="en">Contact</a>
-      <a href="contact.html" data-lang="zh">联系我们</a>
+      <a href="index.html" onclick="setActiveTab(this)">
+        <span data-lang="en">Home</span>
+        <span data-lang="zh">首页</span>
+      </a>
+      <a href="portfolio.html" onclick="setActiveTab(this)">
+        <span data-lang="en">Portfolio</span>
+        <span data-lang="zh">作品集</span>
+      </a>
+      <a href="contact.html" onclick="setActiveTab(this)">
+        <span data-lang="en">Contact</span>
+        <span data-lang="zh">联系我们</span>
+      </a>
     </nav>
 
+    <!-- Language switch -->
     <div class="lang-switch">
       <button onclick="switchLanguage('en')">English</button>
       <button onclick="switchLanguage('zh')">中文</button>
@@ -27,29 +66,33 @@
   <!-- Scrollable bottom section -->
   <main>
     <section>
-      <h2 data-lang="en">About Me</h2>
-      <h2 data-lang="zh">关于我</h2>
+      <h2 data-lang="en">About Lenxi Renovation</h2>
+      <h2 data-lang="zh">关于我们</h2>
 
       <p data-lang="en">
-        Hello! I’m [Your Name]. This is my personal website where I share my work and connect with people.
-        Take a look at my portfolio to see what I’ve been working on!
+        Hello! We are Lenxi Renovation, a licensed and insured professional renovation company based in Seattle.
+        We specialize in home and commercial remodeling, bathroom & kitchen renovations, flooring, tiling,
+        cabinet installation, garage remodeling, painting, exterior spray painting, and more.
+        Free estimates available!
       </p>
       <p data-lang="zh">
-        你好！我是 [你的名字]。这是我的个人网站，我会在这里分享我的作品并与大家交流。
-        欢迎查看我的作品集，了解我最近的项目！
+        你好！我们是来自西雅图的专业装修公司 LENXI。我们有装修执照与保险，
+        承接家装，商装，卫生间翻新，厨房翻新，地板瓷砖墙砖，橱柜安装，车库翻新，刷漆，外墙喷漆等，
+        可单包可全包，免费估价！
       </p>
     </section>
 
     <section>
       <h2 data-lang="en">More Info</h2>
       <h2 data-lang="zh">更多信息</h2>
-      <p data-lang="en">Here you can scroll down to see more details about my work, blog, or other updates.</p>
-      <p data-lang="zh">在这里你可以向下滚动查看更多关于我的工作、博客或其他更新的信息。</p>
+      <p data-lang="en">Scroll down to see more details about our projects, updates, and services.</p>
+      <p data-lang="zh">向下滚动查看更多关于我们的项目、更新和服务的信息。</p>
     </section>
 
     <footer>
-      <p data-lang="en">© 2025 My Website</p>
-      <p data-lang="zh">© 2025 我的网站</p>
+      <p data-lang="en">© 2025 Lenxi Renovation</p>
+      <p data-lang="zh">© 2025 LENXI装修</p>
     </footer>
   </main>
 </body>
+</html>

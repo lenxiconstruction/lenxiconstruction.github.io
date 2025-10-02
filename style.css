@@ -5,19 +5,19 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Fixed top section */
+/* Header fixed at top */
 header {
   background-color: #111;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px;
-  position: fixed;  /* Stick to top */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -35,18 +35,34 @@ header {
   margin-right: 10px;
 }
 
-/* Navigation */
+/* Navigation styled as framed tabs */
+nav {
+  display: flex;
+  gap: 10px;
+}
+
 nav a {
   color: white;
+  padding: 8px 16px;
+  border: 2px solid #444;
+  border-radius: 6px;
   text-decoration: none;
-  margin: 0 10px;
+  transition: all 0.3s ease;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  background: #333;
+  border-color: #666;
 }
 
-/* Language switch */
+/* Active tab */
+nav a.active {
+  background: #fff;
+  color: black;
+  border-color: #fff;
+}
+
+/* Language switch buttons */
 .lang-switch button {
   background: #444;
   border: none;
@@ -61,10 +77,10 @@ nav a:hover {
   background: #666;
 }
 
-/* Scrollable content section */
+/* Scrollable content */
 main {
-  margin-top: 100px; /* Push down so it’s not hidden behind header */
+  margin-top: 100px;
   padding: 20px;
   flex: 1;
-  overflow-y: auto; /* Enable scroll */
+  overflow-y: auto;
 }
