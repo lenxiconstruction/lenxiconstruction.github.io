@@ -25,22 +25,24 @@ header {
   border-bottom: 2px solid #222;
 }
 
-/* Row 1: Logo + Title */
+/* Row 1: Logo + Title (side by side) */
 .header-top {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 15px;
+  gap: 20px; /* spacing between logo and title */
 }
 
 .logo img {
-  height: 50px;
+  height: 80px;   /* bigger logo */
 }
 
 .company-title h1 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 2rem; /* larger title */
+  font-weight: bold;
 }
+
 
 /* Row 2: Tabs + Language */
 .header-bottom {
